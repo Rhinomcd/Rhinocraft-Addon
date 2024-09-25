@@ -1,4 +1,4 @@
-local concentrationCurrencies = { 3013, 3040, 3041, 3042, 3043, 3044, 3045, 3046, 3047, 3049, 3050, 3052, 3053, 3054 }
+local concentrationCurrencies = { 3013, 3040, 3041, 3042, 3043, 3044, 3045, 3046, 3047, 3050, 3052, 3054 }
 
 local function professionLearned(professionName)
     local prof1, prof2 = GetProfessions()
@@ -21,19 +21,19 @@ local function saveCurrency(id)
     end
 
     local nameAndRealm = GetUnitName("player") .. "-" .. GetRealmName()
-    if RhinoCraft[nameAndRealm] == nil then
-        RhinoCraft[nameAndRealm] = {}
+    if Rhinocraft[nameAndRealm] == nil then
+        Rhinocraft[nameAndRealm] = {}
     end
-    if RhinoCraft[nameAndRealm][professionName] == nil then
-        RhinoCraft[nameAndRealm][professionName] = {}
+    if Rhinocraft[nameAndRealm][professionName] == nil then
+        Rhinocraft[nameAndRealm][professionName] = {}
     end
-    if RhinoCraft[nameAndRealm][professionName][id] == nil then
-        RhinoCraft[nameAndRealm][professionName][id] = {}
+    if Rhinocraft[nameAndRealm][professionName][id] == nil then
+        Rhinocraft[nameAndRealm][professionName][id] = {}
     end
-    RhinoCraft[nameAndRealm][professionName][id].time = time()
-    RhinoCraft[nameAndRealm][professionName][id].name = info.name
-    RhinoCraft[nameAndRealm][professionName][id].quantity = info.quantity
-    RhinoCraft[nameAndRealm][professionName][id].maxQuantity = info.maxQuantity
+    Rhinocraft[nameAndRealm][professionName][id].time = time()
+    Rhinocraft[nameAndRealm][professionName][id].name = info.name
+    Rhinocraft[nameAndRealm][professionName][id].quantity = info.quantity
+    Rhinocraft[nameAndRealm][professionName][id].maxQuantity = info.maxQuantity
 end
 
 local function updateConcentration()
@@ -43,7 +43,7 @@ local function updateConcentration()
 end
 
 local function init()
-    RhinoCraft = RhinoCraft or {}
+    Rhinocraft = Rhinocraft or {}
     print("RhinoCraft: Initialized.")
     updateConcentration()
 end
@@ -66,4 +66,3 @@ f:RegisterEvent("ADDON_LOADED")
 f:RegisterEvent("PLAYER_LOGIN")
 f:RegisterEvent("CURRENCY_DISPLAY_UPDATE")
 f:SetScript("OnEvent", onevent)
-
