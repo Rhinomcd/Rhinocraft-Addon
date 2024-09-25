@@ -1,0 +1,8 @@
+## Interface: 110002
+## Title: Rhinocraft
+## Notes: Stores concentration data for easy parsing
+## Version: 1.0
+## DefaultState: enabled
+## SavedVariables: Rhinocraft
+## Author: RhinoMcD
+Rhinocraft.lua
